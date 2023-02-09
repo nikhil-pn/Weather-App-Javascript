@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
+  const city = "paris";
   let cityName = document.getElementById("city-name");
   let mainTemp = document.getElementById("temp-main");
   let descriptionMain = document.getElementById("description-main");
@@ -18,11 +19,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const getHourlyForecast = async () => {
     let response = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=kochi&appid=0e1cc6e24661f917b43a7d4c41bbe50b&units=metric&`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=0e1cc6e24661f917b43a7d4c41bbe50b&units=metric&`
     ).then((response) => response.json());
 
-    for (let i = 0; i < 10; i++) {
-      if (i === 0) {
+    
+    for (let i = 1; i < 10; i++) {
+      if (i === 1) {
         let hourlyInnerHtml = `
               <section>
                     <h4 ">Now</h4>
@@ -32,9 +34,16 @@ document.addEventListener("DOMContentLoaded", async () => {
               `;
         insideHourlyForecast.innerHTML += hourlyInnerHtml;
       } else {
+        console.log(response, "response");
+        const date = new Date(response.list[i].dt_txt.toString());
+        const options = { hour: "numeric", minute: "2-digit", hour12: true };
+        const dateFormated = date.toLocaleTimeString("en-US", options);
+        console.log(dateFormated, "dateFormated");
+        console.log(response.list[i].dt_txt, "really date");
+
         let hourlyInnerHtml = `
               <section>
-                    <h4 ">${response.list[i].dt_txt}</h4>
+                    <h4 ">${dateFormated}</h4>
                     <img src=http://openweathermap.org/img/wn/${response.list[i].weather[0].icon}.png>
                     <p>${response.list[i].main.temp}</p>
                   </section>
@@ -46,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const getWeather = async () => {
     let response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=kochi&appid=0e1cc6e24661f917b43a7d4c41bbe50b&units=metric&`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=0e1cc6e24661f917b43a7d4c41bbe50b&units=metric&`
     ).then((response) => response.json());
     console.log(response);
 
@@ -67,6 +76,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     humidity.textContent = `${main.humidity}%`;
   };
 
+  // const date = new Date("2023-02-10 00:00:00");
+  // const options = { hour: 'numeric', minute: '2-digit', hour12: true };
+  // const dateFormated = (date.toLocaleTimeString('en-US', options));
   getWeather();
   getHourlyForecast();
 });

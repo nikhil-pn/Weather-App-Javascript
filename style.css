@@ -2,7 +2,9 @@
   margin: 0px;
   color: whitesmoke;
 }
-
+body {
+  margin: 0;
+}
 .container {
   background: linear-gradient(
     112.1deg,
@@ -29,6 +31,7 @@
 .city {
   grid-area: city;
   margin: 4px;
+  text-transform: capitalize;
 }
 
 #high-low-div > span {
@@ -50,12 +53,10 @@
   overflow-y: hidden;
   white-space: nowrap;
 }
-/* .inside-hourly-forecast:hover {
-  overflow: auto;
-} */
+
 .inside-hourly-forecast > section {
   margin: 16px;
-  padding: 8px;
+  padding: 16px;
   display: grid;
   place-items: center;
 }
