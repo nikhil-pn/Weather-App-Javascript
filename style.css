@@ -46,13 +46,13 @@
 .inside-hourly-forecast {
   display: flex;
   width: 80%;
-  overflow-x: hidden;
+  overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
 }
-.inside-hourly-forecast:hover {
+/* .inside-hourly-forecast:hover {
   overflow: auto;
-}
+} */
 .inside-hourly-forecast > section {
   margin: 16px;
   padding: 8px;
@@ -83,8 +83,8 @@
 @media (width <=500px) {
   .inside-hourly-forecast {
     display: flex;
-    width: 350px;
-    overflow-x: hidden;
+    width: 80%;
+    overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
   }
