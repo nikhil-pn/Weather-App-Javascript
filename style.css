@@ -30,29 +30,33 @@
 .hourly-forecast {
   grid-area: hourly;
 }
-
-.inside-hourly-forecast{
-    display: flex;
+/* horizontal scroll added */
+.inside-hourly-forecast {
+  display: flex;
+  width: 350px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  
 }
-.inside-hourly-forecast > section{
-    margin: 16px;
-    padding: 8px;
-    display: grid;
-    place-items: center;
+.inside-hourly-forecast > section {
+  margin: 16px;
+  padding: 8px;
+  display: grid;
+  place-items: center;
 }
-
 
 .five-day {
   grid-area: five-day;
 }
-.inside-five-day-forecast{
-    padding: 8px;
-    display: grid;
-    place-items: start;
+.inside-five-day-forecast {
+  padding: 8px;
+  display: grid;
+  place-items: start;
 }
 
-.inside-five-day-forecast > section{
-    padding: 4px;
+.inside-five-day-forecast > section {
+  padding: 4px;
 }
 
 .feel-like {
