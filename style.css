@@ -23,6 +23,11 @@
   grid-area: city;
   margin: 4px;
 }
+
+#high-low-div > span {
+  margin: 4px;
+}
+
 .temp {
   font-size: 36px;
   font-style: normal;
@@ -37,7 +42,6 @@
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
-  
 }
 .inside-hourly-forecast > section {
   margin: 16px;

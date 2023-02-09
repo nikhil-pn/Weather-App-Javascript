@@ -10,49 +10,21 @@
   <body>
     <main class="container">
       <article class="city">
-        <h1>City Name</h1>
-        <h1 class="temp">Temp</h1>
-        <p>description</p>
-        <p>High Low</p>
+        <h1 id="city-name">City Name</h1>
+        <h1 id="temp-main">Temp</h1>
+        <p id="description-main">description</p>
+        <section id="high-low-div">
+          <span id="high">high</span> <span id="low"> low</span>
+        </section>
       </article>
       <article class="hourly-forecast">
         <h2>Hourly-forecast</h2>
-        <div class="inside-hourly-forecast">
-          <section>
-            <h4>NOW</h4>
-            <p>icon</p>
-            <p>temp</p>
-          </section>
-          <section>
-            <h4>NOW</h4>
-            <p>icon</p>
-            <p>temp</p>
-          </section>
-          <section>
-            <h4>NOW</h4>
-            <p>icon</p>
-            <p>temp</p>
-          </section>
-          <section>
-            <h4>NOW</h4>
-            <p>icon</p>
-            <p>temp</p>
-          </section>
-          <section>
-            <h4>NOW</h4>
-            <p>icon</p>
-            <p>temp</p>
-          </section>
-          <section>
-            <h4>NOW</h4>
-            <p>icon</p>
-            <p>temp</p>
-          </section>
-          <section>
-            <h4>NOW</h4>
-            <p>icon</p>
-            <p>temp</p>
-          </section>
+        <div id="inside-hourly-forecast-div-id" class="inside-hourly-forecast">
+          <!-- <section>
+            <h4 id="time-hourly">NOW</h4>
+            <p id="icon-hourly" >icon</p>
+            <p id="temp-hourly">temp</p>
+          </section> -->
         </div>
       </article>
       <article class="five-day">
@@ -76,8 +48,14 @@
           </section>
         </div>
       </article>
-      <article class="feel-like">Feel like</article>
-      <article class="humidity">Humidity</article>
+      <article class="feel-like">
+        <h3>Feels Like</h3>
+        <h3 id="feels-like-h3"></h3>
+      </article>
+      <article class="humidity">
+        <h3>Humidity</h3>
+        <h3 id="humidity-h3">Feels Like</h3>
+      </article>
     </main>
     <script src="main.js"></script>
   </body>
