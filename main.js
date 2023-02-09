@@ -50,8 +50,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     cityName.textContent = name;
     mainTemp.textContent = temp;
     descriptionMain.textContent = description;
-    high.textContent = main.temp_max;
-    low.textContent = main.temp_min;
+    high.textContent = `H: ${main.temp_max}`;
+    low.textContent = `L: ${main.temp_min}`;
 
 
     feelsLike.textContent = `${main.feels_like} degrees`
