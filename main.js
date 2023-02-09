@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       let hourlyInnerHtml = `
       <section>
             <h4 ">${response.list[i].dt_txt}</h4>
-            <img src=http://openweathermap.org/img/w/${response.list[i].weather[0].icon}.png>
+            <img src=http://openweathermap.org/img/wn/${response.list[i].weather[0].icon}.png>
             <p>${response.list[i].main.temp}</p>
           </section>
       `;

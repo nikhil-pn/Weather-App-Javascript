@@ -1,11 +1,18 @@
 * {
   margin: 0px;
+  color: whitesmoke;
 }
 
 .container {
+  background: linear-gradient(
+    112.1deg,
+    rgb(33, 44, 78) 11.4%,
+    rgb(63, 76, 119) 70.2%
+  );
+
   display: grid;
   place-items: center;
-  height: 99vh;
+  height: 100vh;
   grid-template-areas:
     "city city"
     "hourly hourly"
@@ -38,10 +45,13 @@
 /* horizontal scroll added */
 .inside-hourly-forecast {
   display: flex;
-  width: 350px;
-  overflow-x: auto;
+  width: 80%;
+  overflow-x: hidden;
   overflow-y: hidden;
   white-space: nowrap;
+}
+.inside-hourly-forecast:hover {
+  overflow: auto;
 }
 .inside-hourly-forecast > section {
   margin: 16px;
@@ -68,4 +78,14 @@
 }
 .humidity {
   grid-area: humidity;
+}
+
+@media (width <=500px) {
+  .inside-hourly-forecast {
+    display: flex;
+    width: 350px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
 }
