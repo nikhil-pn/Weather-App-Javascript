@@ -16,10 +16,10 @@ body {
   place-items: center;
   height: 100vh;
   grid-template-areas:
-    "city city"
-    "hourly hourly"
-    "five-day five-day"
-    "feel-like humidity";
+    "city city city city"
+    "hourly hourly hourly hourly"
+    "five-day five-day five-day five-day"
+    "feel-like feel-like humidity humidity";
 }
 .container > * {
   font-family: sans-serif;
@@ -44,11 +44,12 @@ body {
 }
 .hourly-forecast {
   grid-area: hourly;
+  text-transform: capitalize;
 }
 /* horizontal scroll added */
 .inside-hourly-forecast {
   display: flex;
-  width: 80%;
+  width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
@@ -63,15 +64,21 @@ body {
 
 .five-day {
   grid-area: five-day;
+  text-transform: capitalize;
 }
 .inside-five-day-forecast {
-  padding: 8px;
-  display: grid;
-  place-items: start;
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
 }
 
 .inside-five-day-forecast > section {
-  padding: 4px;
+  margin: 16px;
+  padding: 16px;
+  display: grid;
+  place-items: center;
 }
 
 .feel-like {
