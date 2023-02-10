@@ -1,4 +1,4 @@
-API_KEY = "0e1cc6e24661f917b43a7d4c41bbe50b"
+API_KEY = "0e1cc6e24661f917b43a7d4c41bbe50b";
 const cityUserInput = "kochi";
 
 let selectedCityText;
@@ -35,15 +35,15 @@ const getForecast = async ({ lat, lon, name: city }) => {
 };
 
 const getCurrentWeatherData = async ({ lat, lon, name: city }) => {
-  const url = lat && lon ? `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric` : `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
-  const response = await fetch(url);
   
-  return response.json();
+  const url =  `https://api.openweathermap.org/data/2.5/weather?lat=${selectedCity.lat}&lon=${selectedCity.lon}&appid=${API_KEY}&units=metric`
+  const response = await fetch(url);
 
-}
+  return response.json();
+};
 
 const getHourlyForecast = async (response) => {
-  insideHourlyForecast.innerHTML = ""
+  insideHourlyForecast.innerHTML = "";
   for (let i = 1; i < 10; i++) {
     if (i === 1) {
       let hourlyInnerHtml = `
@@ -72,7 +72,7 @@ const getHourlyForecast = async (response) => {
 };
 
 const getFiveDayForecast = (response) => {
-  insideFiveDayForecast.innerHTML = ""
+  insideFiveDayForecast.innerHTML = "";
   for (let i = 1; i <= response.list.length; i += 8) {
     const dateString = response.list[i].dt_txt.toString();
     const date = new Date(dateString);
@@ -182,10 +182,22 @@ const handleCitySelection = (event) => {
     loadData();
   }
 };
+const loadForecastUsingGeoLocation = () => {
+  navigator.geolocation.getCurrentPosition(
+    ({ coords }) => {
+      const { latitude: lat, longitude: lon } = coords;
+      selectedCity = { lat, lon, name: "kochi" };
+      // console.log(selectedCity, "selectedCity");
+      loadData();
+    },
+    (error) => console.log(error)
+  );
+};
 
 const loadData = async () => {
+  console.log(selectedCity, "inload data");
   let response = await getCurrentWeatherData(selectedCity);
-  let hourlyForestResponse = await getForecast(selectedCity)
+  let hourlyForestResponse = await getForecast(selectedCity);
   console.log(response, "response");
   console.log(hourlyForestResponse, "hourlyrespone");
   getWeather(response);
@@ -202,5 +214,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   // getWeather("kochi");
   // getHourlyForecast(response);
   // getFiveDayForecast(response);
-  loadData()
+  loadData();
+  loadForecastUsingGeoLocation()
 });
