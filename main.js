@@ -56,7 +56,7 @@ const getHourlyForecast = async (response) => {
       let hourlyInnerHtml = `
         <section>
         <h4 ">Now</h4>
-        <img src=http://openweathermap.org/img/wn/${response.list[i].weather[0].icon}.png>
+        <img src=https://openweathermap.org/img/wn/${response.list[i].weather[0].icon}.png>
         <p>${response.list[i].main.temp}</p>
         </section>
         `;
@@ -70,7 +70,7 @@ const getHourlyForecast = async (response) => {
       let hourlyInnerHtml = `
       <section>
       <h4 ">${dateFormated}</h4>
-      <img src=http://openweathermap.org/img/wn/${response.list[i].weather[0].icon}.png>
+      <img src=https://openweathermap.org/img/wn/${response.list[i].weather[0].icon}.png>
       <p>${response.list[i].main.temp}</p>
       </section>
       `;
@@ -102,7 +102,7 @@ const getFiveDayForecast = (response) => {
       let dailyForecast = `
       <section>
       <h4 ">Today</h4>
-      <img src=http://openweathermap.org/img/wn/${response.list[i].weather[0].icon}.png>
+      <img src=https://openweathermap.org/img/wn/${response.list[i].weather[0].icon}.png>
       <p>${response.list[i].main.temp}</p>
       </section>
               `;
@@ -111,7 +111,7 @@ const getFiveDayForecast = (response) => {
       let dailyForecast = `
               <section>
               <h4 ">${dayName}</h4>
-              <img src=http://openweathermap.org/img/wn/${response.list[i].weather[0].icon}.png>
+              <img src=https://openweathermap.org/img/wn/${response.list[i].weather[0].icon}.png>
               <p>${response.list[i].main.temp}</p>
               </section>
               `;
@@ -141,7 +141,7 @@ const getWeather = async (responses) => {
 //The getGeocities for dataList api function.The response (city) will return the list[5 list beacause limit is 5] of citis lat and longitude 
 const getGeoCities = async (searchTextCity) => {
   let city = await fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${searchTextCity}&limit=5&appid=${API_KEY}`
+    `https://api.openweathermap.org/geo/1.0/direct?q=${searchTextCity}&limit=5&appid=${API_KEY}`
   );
   return city.json();
 };
