@@ -3,25 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="cloudy.png" />
     <title>Weather Now</title>
   </head>
   <body>
     <main class="container">
+      <!-- search and datalist functionality -->
       <article class="search">
-        <input
-          id="input-cites"
-          list="cities"
-          name="search"
-          type="text"
-          placeholder="Search City"
-          autocomplete="off"
-        />
-        <datalist id="cities">
-
-        </datalist>
+        <section id="search-button-div">
+          <input
+            id="input-cites"
+            list="cities"
+            name="search"
+            type="search"
+            placeholder="Search City"
+            autocomplete="off"
+          />
+          <span class="material-symbols-rounded"> my_location </span>
+        </section>
+        <datalist id="cities"> </datalist>
       </article>
+      <!-- displaying city information -->
       <article class="city">
         <h1 id="city-name">City Name</h1>
         <h1 id="temp-main">Temp</h1>
@@ -43,6 +51,7 @@
           class="inside-hourly-forecast"
         ></div>
       </article>
+      <!-- feel-like -->
       <article class="feel-like">
         <h3>Feels Like</h3>
         <h3 id="feels-like-h3"></h3>
