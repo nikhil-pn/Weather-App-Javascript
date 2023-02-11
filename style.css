@@ -121,7 +121,7 @@ body {
 @media (width <=500px) {
   .inside-hourly-forecast {
     display: flex;
-    width: 80%;
+    width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
